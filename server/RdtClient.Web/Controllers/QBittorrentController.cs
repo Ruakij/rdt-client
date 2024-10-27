@@ -501,6 +501,15 @@ public class QBittorrentController(ILogger<QBittorrentController> logger, QBitto
     {
         return await SyncMainData();
     }
+
+    [Authorize(Policy = "AuthSetting")]
+    [Route("torrents/tags")]
+    [HttpGet]
+    [HttpPost]
+    public async Task<ActionResult<String[]>> TorrentsCategories()
+    {
+        return Ok([]);
+    }
 }
 
 public class QBAuthLoginRequest
